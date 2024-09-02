@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Verification
+{% endblock %}
+
+{% block content %}
+    <h1>
+        hello {{ first_name }}
+    </h1>
+    <h2>
+        Click here to verify your account
+        <a href="{{ fake_verification_url }}">
+            <button>Verify</button>
+        </a>
+    </h2>
+{% endblock %}
