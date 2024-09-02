@@ -32,12 +32,11 @@ SessionMaker = sessionmaker(
 
 @contextmanager
 def get_db():
-    with SessionMaker().begin() as session:
-        try:
-            yield session
-            session.commit()
-        except SQLAlchemyError:
-            session.rollback()
-            raise
-        finally:
-            session.close()
+    session = SessionMaker()
+    try:
+        yield session
+        session.commit()
+    except SQLAlchemyError:
+        session.rollback()
+        raise
+
