@@ -52,3 +52,12 @@ python -m producers_basic_method.register
  * This should prompt you to enter user details
 
 After entering your details, it should be added to the database and email sent to you. There is no need to start the "producers_basic_method.send_email" since it would be called by the register consumer after the user is successfully added to the database.
+This is broadcasting messages through routing_key.
+
+## FANOUT EXCHANGE
+
+## TOPIC EXCHANGE
+
+## DIRECT EXCHANGE
+
+## HEADERS EXCHANGE
