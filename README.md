@@ -55,6 +55,21 @@ After entering your details, it should be added to the database and email sent t
 This is broadcasting messages through routing_key.
 
 ## FANOUT EXCHANGE
+**Definition**:
+A Fanout exchange routes messages to all of the queues that are bound to it, without taking into account any routing keys. This type of exchange is similar to a broadcast mechanism.
+
+**Routing Logic:**
+It ignores the routing key. Messages sent to a fanout exchange are delivered to all queues bound to that exchange, regardless of any criteria.
+
+**Use Case**:
+Fanout exchanges are typically used when the same message needs to be sent to multiple consumers simultaneously. For example, broadcasting notifications to all connected users, sending log messages to multiple log-processing systems, or sending updates to multiple services.
+
+**Behavior**:
+Every queue that is bound to the exchange receives a copy of every message. There is no filtering based on any attributes of the message.
+
+**Example Scenario:**
+Imagine a sports news app where you want to notify all subscribers whenever there is breaking news. By using a Fanout exchange, every subscriber queue will get a notification regardless of their interests(be it in tennis, football, or basketball).
+
 The fanout exchange does not use queues directly(does not send messages to queues directly or uses a default exchange), an exchange name has to be provided when channel.queue_declare is used.
  * start the consumers on different tabs
 ```
