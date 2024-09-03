@@ -55,7 +55,21 @@ After entering your details, it should be added to the database and email sent t
 This is broadcasting messages through routing_key.
 
 ## FANOUT EXCHANGE
+The fanout exchange does not use queues directly(does not send messages to queues directly or uses a default exchange), an exchange name has to be provided when channel.queue_declare is used.
+ * start the consumers on different tabs
+```
+python -m consumers_fanout.user_services.utils.register
+```
 
+```
+python -m consumers_fanout_method.email_services.send_email
+```
+
+ * and then run the register producer of the fanout method
+```
+python -m producers_fanout_method.register
+```
+This time, faker module is used to generate fake user details, you can always switch them for real emails, since the send_email consumer would send emails to the users' emails.
 ## TOPIC EXCHANGE
 
 ## DIRECT EXCHANGE
