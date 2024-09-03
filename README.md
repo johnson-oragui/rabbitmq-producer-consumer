@@ -85,7 +85,22 @@ python -m consumers_fanout_method.email_services.send_email
 python -m producers_fanout_method.register
 ```
 This time, faker module is used to generate fake user details, you can always switch them for real emails, since the send_email consumer would send emails to the users' emails.
-## TOPIC EXCHANGE
+
+## TOPIC EXCHANGE (ROUTING)
+**Definition**:
+A Direct exchange routes messages to queues based on the message's routing key. The routing key is compared to the binding key of the queues, and messages are routed accordingly.
+
+**Routing Logic**:
+The message will be delivered to the queue(s) whose binding key exactly matches the routing key of the message.
+
+**Use Case:**
+Direct exchanges are used when you want to route messages to specific queues based on some criteria. For instance, directing messages to different services or workers based on task type, handling different severity levels in a logging system, or sending emails of different types (e.g., verification, newsletter, etc.) to different consumers.
+
+**Behavior**:
+Only queues that have a binding key that matches the routing key of the message will receive the message. This allows selective message delivery.
+
+**Example Scenario:**
+Consider an e-commerce system where different queues handle different types of notifications: one for order confirmations and another for shipping updates. By using a Direct exchange with appropriate routing keys (order_confirmation and shipping_update), you can ensure that each message goes to the correct processing queue.
 
 ## DIRECT EXCHANGE
 
