@@ -113,6 +113,16 @@ Consider an e-commerce system where different queues handle different types of n
 | **Use Case**          | Broadcasting messages                    | Selective message delivery                   |
 | **Common Applications** | Notifications, broadcasting events     | Task distribution, different log levels, specific event handling |
 
+**Usage**
+ * First start the consumer by running
+```
+python -m consumer_direct.tools
+```
+ * And then run the producer
+```
+python -m producer_direct_method.tools
+```
+
 ## TOPIC EXCHANGE
 
 ## HEADERS EXCHANGE
